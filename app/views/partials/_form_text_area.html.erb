@@ -1,0 +1,6 @@
+<div class="field">
+  <span style="display: inline-block; width: 450px;"><%= form.label attribute, t("#{resource.class.name}.#{attribute.to_s}.field_name") %></span>
+  <span class="help"><%= img_help t("#{resource.class.name}.#{attribute.to_s}.help_description") %></span>
+  <br />
+  <%= form.text_area attribute %>
+</div>

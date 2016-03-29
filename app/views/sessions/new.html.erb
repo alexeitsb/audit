@@ -1,0 +1,5 @@
+<%= form_tag sessions_create_path do %>
+  <%= text_field_tag :username, "", placeholder: "Usuário", autofocus: true %>
+  <%= password_field_tag :password, "", placeholder: "Senha" %>
+  <%= submit_tag "ENTRAR" %>
+<% end %>

@@ -1,0 +1,11 @@
+<div class="field">
+  <span style="display: inline-block; width: 450px;"><%= form.label attribute, t("#{resource.class.name}.#{attribute.to_s}.field_name") %></span>
+  <span class="help"><%= img_help t("#{resource.class.name}.#{attribute.to_s}.help_description") %></span>
+  <br />
+  <% if resource.new_record? && required_attribute?(resource, attribute) %>
+    <%= form.text_field attribute, class: "#{css_class}", autofocus: autofocus, style: "border: solid thin red;" %>
+  <% else %>
+    <%= form.text_field attribute, class: "#{css_class}", autofocus: autofocus %>
+  <% end %>
+  <div class="field_error"><%= error_message(resource, attribute) %></div>
+</div>

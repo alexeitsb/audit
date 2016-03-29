@@ -1,0 +1,266 @@
+pt-BR:
+  blank: &default_blank Este campo precisa ser informado
+  invalid: &default_invalid O valor informado é inválido
+  taken: &default_taken O valor informado já foi cadastrado
+  not_an_integer: &default_not_an_integer Este campo deve conter um valor numérico inteiro
+  not_a_number: &default_not_a_number Este campo deve conter um valor numérico
+  not_a_date: &default_not_a_date A data informada é inválida
+  wrong_length: &default_wrong_length Este campo deve ter %{count} caracteres
+  too_short: &default_too_short Este campo deve ter no mínimo %{count} caracteres
+  too_long: &default_too_long Este campo deve ter no máximo %{count} caracteres
+  greater_than: &default_greater_than O valor deste campo deve ser maior que %{count}
+  greater_than_or_equal_to: &default_greater_than_or_equal_to O valor deste campo deve ser igual ou maior que %{count}
+
+  Entry:
+    description:
+      field_name: DESCRIÇÃO
+      help_description: Descriçao
+    value:
+      field_name: VALOR
+      help_description: Valor
+    note:
+      field_name: OBSERVAÇÃO
+      help_description: Observação
+
+  activerecord:
+    errors:
+      models:
+        entry:
+          attributes:
+            description:
+              blank: O nome do grupo precisa ser informado
+              too_short: Informe um nome que tenha no mínimo 4 e no máximo 50 caracteres.
+              too_long: Informe um nome que tenha no mínimo 4 e no máximo 50 caracteres.
+            fantasy_name:
+              blank: O nome fantasia do grupo precisa ser informado
+              too_short: Informe um nome fantasia que tenha no mínimo 4 e no máximo 50 caracteres.
+              too_long: Informe um nome fantasia que tenha no mínimo 4 e no máximo 50 caracteres.
+            document:
+              blank: O CNPJ do grupo precisa ser informado
+              wrong_length: Este CNPJ não é válido
+            street:
+              blank: O logradouro do endereço do grupo precisa ser informado
+              too_short: Informe um logradouro que tenha no mínimo 5 e no máximo 200 caracteres.
+              too_long: Informe um logradouro que tenha no mínimo 5 e no máximo 200 caracteres.
+            number:
+              blank: O número do endereço do grupo precisa ser informado
+              too_short: Informe um número que tenha no mínimo 1 e no máximo 10 caracteres.
+              too_long: Informe um número que tenha no mínimo 1 e no máximo 10 caracteres.
+            neighborhood:
+              blank: O bairro do grupo precisa ser informado
+              too_short: Informe um bairro que tenha no mínimo 4 e no máximo 200 caracteres.
+              too_long: Informe um bairro que tenha no mínimo 4 e no máximo 200 caracteres.
+            postal_code:
+              blank: O CEP do grupo precisa ser informado
+              wrong_length: Este CEP não é válido
+            telephone:
+              blank: O telefone de contato do grupo precisa ser informado
+              too_short: Este telefone não é válido
+              too_long: Este telefone não é válido
+            email:
+              blank: O e-mail de contato do grupo precisa ser informado
+              invalid: Este e-mail não é válido
+        parent:
+          attributes:
+            group_id:
+              blank: O grupo precisa ser informado
+            city_id:
+              blank: O município da matriz precisa ser informado
+            name:
+              blank: O nome da matriz precisa ser informado
+              too_short: Informe um nome que tenha no mínimo 4 e no máximo 50 caracteres.
+              too_long: Informe um nome que tenha no mínimo 4 e no máximo 50 caracteres.
+            fantasy_name:
+              blank: O nome fantasia do grupo precisa ser informado
+              too_short: Informe um nome fantasia que tenha no mínimo 4 e no máximo 50 caracteres.
+              too_long: Informe um nome fantasia que tenha no mínimo 4 e no máximo 50 caracteres.
+            document:
+              blank: O CNPJ da matriz precisa ser informado
+              wrong_length: Este CNPJ não é válido
+            street:
+              blank: O logradouro do endereço da matriz precisa ser informado
+              too_short: Informe um logradouro que tenha no mínimo 5 e no máximo 200 caracteres.
+              too_long: Informe um logradouro que tenha no mínimo 5 e no máximo 200 caracteres.
+            number:
+              blank: O número do endereço da matriz precisa ser informado
+              too_short: Informe um número que tenha no mínimo 1 e no máximo 10 caracteres.
+              too_long: Informe um número que tenha no mínimo 1 e no máximo 10 caracteres.
+            neighborhood:
+              blank: O bairro da matriz precisa ser informado
+              too_short: Informe um bairro que tenha no mínimo 4 e no máximo 200 caracteres.
+              too_long: Informe um bairro que tenha no mínimo 4 e no máximo 200 caracteres.
+            postal_code:
+              blank: O CEP da matriz precisa ser informado
+              wrong_length: Este CEP não é válido
+            telephone:
+              blank: O telefone de contato da matriz precisa ser informado
+              too_short: Este telefone não é válido
+              too_long: Este telefone não é válido
+            email:
+              blank: O e-mail de contato da matriz precisa ser informado
+              invalid: Este e-mail não é válido
+        subsidiary:
+          attributes:
+            parent_id:
+              blank: A matriz precisa ser informada
+            city_id:
+              blank: O município da filial precisa ser informado
+            name:
+              blank: O nome da filial precisa ser informado
+              too_short: Informe um nome que tenha no mínimo 4 e no máximo 50 caracteres.
+              too_long: Informe um nome que tenha no mínimo 4 e no máximo 50 caracteres.
+            fantasy_name:
+              blank: O nome fantasia do grupo precisa ser informado
+              too_short: Informe um nome fantasia que tenha no mínimo 4 e no máximo 50 caracteres.
+              too_long: Informe um nome fantasia que tenha no mínimo 4 e no máximo 50 caracteres.
+            document:
+              blank: O CNPJ da filial precisa ser informado
+              wrong_length: Este CNPJ não é válido
+            street:
+              blank: O logradouro do endereço da filial precisa ser informado
+              too_short: Informe um logradouro que tenha no mínimo 5 e no máximo 200 caracteres.
+              too_long: Informe um logradouro que tenha no mínimo 5 e no máximo 200 caracteres.
+            number:
+              blank: O número do endereço da filial precisa ser informado
+              too_short: Informe um número que tenha no mínimo 1 e no máximo 10 caracteres.
+              too_long: Informe um número que tenha no mínimo 1 e no máximo 10 caracteres.
+            neighborhood:
+              blank: O bairro da filial precisa ser informado
+              too_short: Informe um bairro que tenha no mínimo 4 e no máximo 200 caracteres.
+              too_long: Informe um bairro que tenha no mínimo 4 e no máximo 200 caracteres.
+            postal_code:
+              blank: O CEP da filial precisa ser informado
+              wrong_length: Este CEP não é válido
+            telephone:
+              blank: O telefone de contato da filial precisa ser informado
+              too_short: Este telefone não é válido
+              too_long: Este telefone não é válido
+            email:
+              blank: O e-mail de contato da filial precisa ser informado
+              invalid: Este e-mail não é válido
+        driver:
+          attributes:
+            subsidiary_id:
+              blank: A filial precisa ser informada
+            name:
+              blank: O nome do motorista precisa ser informado
+              too_short: Informe um nome que tenha no mínimo 5 e no máximo 200 caracteres.
+              too_long: Informe um nome que tenha no mínimo 5 e no máximo 200 caracteres.
+            document:
+              blank: O CPF do motorista precisa ser informado
+              taken: Este CPF já foi cadastrado para outro motorista
+              wrong_length: Este CPF não é válido
+            telephone:
+              blank: O número do telefone do motorista precisa ser informado
+              too_short: Este número de telefone não é válido
+              too_long: Este número de telefone não é válido
+            email:
+              blank: O e-mail do motorista precisa ser informado
+              invalid: Este e-mail não é válido
+        vehicle:
+          attributes:
+            subsidiary_id:
+              blank: A filial precisa ser informada
+            plate:
+              blank: A placa do veículo precisa ser informada
+              invalid: Esta placa não é válida
+              taken: Esta placa já foi cadastrada para outro veículo
+        customer:
+          attributes:
+            city_id:
+              blank: O município precisa ser informado
+            name:
+              blank: O nome precisa ser informado
+              too_short: Informe um nome que tenha no mínimo 4 e no máximo 15 caracteres.
+              too_long: Informe um nome que tenha no mínimo 4 e no máximo 15 caracteres.
+            document:
+              blank: O CNPJ precisa ser informado
+              wrong_length: Este CNPJ não é válido
+            street:
+              blank: O logradouro do endereço precisa ser informado
+              too_short: Informe um logradouro que tenha no mínimo 5 e no máximo 200 caracteres.
+              too_long: Informe um logradouro que tenha no mínimo 5 e no máximo 200 caracteres.
+            number:
+              blank: O número do endereço precisa ser informado
+              too_short: Informe um número que tenha no mínimo 1 e no máximo 10 caracteres.
+              too_long: Informe um número que tenha no mínimo 1 e no máximo 10 caracteres.
+            neighborhood:
+              blank: O bairro precisa ser informado
+              too_short: Informe um bairro que tenha no mínimo 4 e no máximo 200 caracteres.
+              too_long: Informe um bairro que tenha no mínimo 4 e no máximo 200 caracteres.
+            postal_code:
+              blank: O CEP precisa ser informado
+              wrong_length: Este CEP não é válido
+            telephone:
+              blank: O telefone de contato precisa ser informado
+              too_short: Este telefone não é válido
+              too_long: Este telefone não é válido
+            email:
+              blank: O e-mail de contato precisa ser informado
+              invalid: Este e-mail não é válido
+        user:
+          attributes:
+            username:
+              blank: O nome de usuário precisa ser informado
+              too_short: Informe um nome de usuário que tenha no mínimo 5 e no máximo 40 caracteres.
+              too_long: Informe um nome de usuário que tenha no mínimo 5 e no máximo 40 caracteres.
+              taken: Este nome de usuário já foi escolhido. O nome de usuário precisa ser único. Por favor escolha outro nome para acessar o sistema.
+            name:
+              blank: O nome do usuário precisa ser informado
+              too_short: Informe um nome que tenha no mínimo 8 e no máximo 200 caracteres.
+              too_long: Informe um nome que tenha no mínimo 8 e no máximo 200 caracteres.
+            document:
+              blank: O documento do usuário precisa ser informado
+            telephone:
+              blank: O telefone do usuário precisa ser informado
+            email:
+              blank: O e-mail do usuário precisa ser informado
+              invalid: Este endereço de e-mail não é válido
+        requirement:
+          attributes:
+            email:
+              blank: Você precisa informar e-mail do responsável pelo grupo
+              invalid: Este e-mail não é válido
+            group_name:
+              blank: Você precisa escolher um nome para o seu grupo
+              too_short: Informe um nome que tenha no mínimo 4 e no máximo 50 caracteres.
+              too_long: Informe um nome que tenha no mínimo 4 e no máximo 50 caracteres.
+            username:
+              blank: Você precisa escolher um nome de usuário para acessar o sistema.
+              too_short: Informe um nome que tenha no mínimo 6 e no máximo 50 caracteres.
+              too_long: Informe um nome que tenha no mínimo 6 e no máximo 50 caracteres.
+            name:
+              blank: Você precisa informar o seu nome
+              too_short: Informe um nome que tenha no mínimo 4 e no máximo 50 caracteres.
+              too_long: Informe um nome que tenha no mínimo 4 e no máximo 50 caracteres.
+            document:
+              blank: Você precisa informar o seu CPF
+              wrong_length: Este CPF não é válido
+        charge:
+          attributes:
+            fixed_value:
+              blank: Você precisa informar o valor que será cobrado como fixo
+            driver_value:
+              blank: Você precisa informar o valor que será cobrado por motorista
+            beginning_date:
+              blank: Você precisa informar a data em que a regra irá ser válida
+            total_discount_type:
+              blank: Você precisa informar como será o desconto total
+            total_discount_value:
+              blank: Você precisa informar o valor de desconto do total
+            fixed_discount_type:
+              blank: Você precisa informar como será o desconto fixo
+            fixed_discount_value:
+              blank: Você precisa informar o valor de desconto do fixo
+            driver_discount_type:
+              blank: Você precisa informar como será o desconto por motorista
+            driver_discount_value:
+              blank: Você precisa informar o valor de desconto por motorista
+        setup:
+          attributes:
+            number_of_free_days:
+              blank: Você precisa informar a quantidade de dias de teste
+            number_of_free_drivers:
+              blank: Você precisa informar o número de motoristas ativos
+            number_of_days_to_payment:
+              blank: Você precisa informar a quantidade de dias para pagar

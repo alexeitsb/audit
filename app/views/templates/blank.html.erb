@@ -1,0 +1,12 @@
+<div class="center">
+  <div style="padding-top: 50px;"><%= img_blank %></div>
+  <div style="padding-top: 20px;" class="font-30">Não há nada para ver aqui... por enquanto</div>
+  <% if defined?(text) %>
+    <div style="padding-top: 15px;" class="font-20">
+      <%= text %>
+    </div>
+    <% if defined?(link_label) && defined?(link_path) %>
+      <div style="padding-top: 2px;"><%= link_to link_label, link_path %></div>
+    <% end %>
+  <% end %>
+</div>

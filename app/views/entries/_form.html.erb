@@ -1,0 +1,12 @@
+<%= form_for(@entry) do |f| %>
+  <%= t_field(f, @entry, :description, "", true) %>
+  <%= t_field(f, @entry, :value, "mask_two_decimals") %>
+  <%= t_area(f, @entry, :note) %>
+  <div>
+    <%= f.radio_button :entity, :credit %>
+    <%= f.label :entity_credit, "Crédito" %>
+    <%= f.radio_button :entity, :debit %>
+    <%= f.label :entity_debit, "Débito" %>
+  </div>
+  <%= submit_tag "SALVAR" %>
+<% end %>
