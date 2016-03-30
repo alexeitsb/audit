@@ -10,6 +10,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if user_signed_in? %>
+    <div class="header">
+      <span style="margin-right: 25px;"><%= current_user.name %></span>
+      <%= link_to "Sair", sessions_destroy_path, method: :delete, class: "link-red" %>
+    </div>
+  <% end %>
   <div class="flash">
     <% if flash.any? %>
       <div class="flash_<%= flash.first[0] %>"><%= flash.first[1] %></div>

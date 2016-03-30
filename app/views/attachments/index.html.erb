@@ -1,0 +1,22 @@
+<div class="border-bottom">
+  <span class="font-25"><%= @entry.description %></span>
+  <span style="margin-left: 25px;"><%= by(@entry) %></span>
+  <span style="margin-left: 10px;"><%= entry_value(@entry) %></span>
+</div>
+<div style="margin-top: 20px;"></div>
+
+<% @attachments.each do |attachment| %>
+  <%= link_to image_tag(attachment.file.url(:s_200)), attachment.file.url, target: "_blank" %>
+  <% if can? :destroy, attachment %>
+    <%= link_to img_trash, attachment, method: :delete, data: { confirm: "Deseja excluir este arquivo?" } %>
+  <% end %>
+  <span class="margin-right"></span>
+<% end %>
+
+<%= form_for @attachment, url: entry_attachments_path, html: { multipart: true, class: "invisible" } do |f| %>
+  <%= f.file_field :file, onchange: "$('#new_attachment').trigger('submit');" %>
+<% end %>
+
+<% if can? :create, @entry.attachments.new %>
+  <%= image_tag "new_attachment.png", style: "height: 50px;", title: "Adicionar arquivo", onclick: "$('#attachment_file').trigger('click');" %>
+<% end %>

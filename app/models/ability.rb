@@ -6,8 +6,13 @@ class Ability
       can :manage, :all
     elsif user.write?
       # Entry
-      can :create, Entry do |entry|
+      can [:create, :read], Entry
+      can [:update, :destroy], Entry do |entry|
         entry.user == user
+      end
+      # Attachment
+      can :manage, Attachment do |attachment|
+        attachment.entry.user == user
       end
     elsif user.read?
       # Entry
@@ -15,3 +20,6 @@ class Ability
     end
   end
 end
+
+
+# :create, :read, :update, :destroy

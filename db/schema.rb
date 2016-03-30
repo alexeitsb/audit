@@ -28,11 +28,12 @@ ActiveRecord::Schema.define(version: 20160329141530) do
   create_table "entries", force: :cascade do |t|
     t.integer  "user_id",     limit: 4
     t.string   "description", limit: 255
-    t.decimal  "value",                     precision: 10
+    t.decimal  "value",                     precision: 8, scale: 2, default: 0.0
     t.text     "note",        limit: 65535
-    t.integer  "entity",      limit: 4,                    default: 1
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
+    t.integer  "entity",      limit: 4,                             default: 1
+    t.date     "at"
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
   end
 
   add_index "entries", ["user_id"], name: "index_entries_on_user_id", using: :btree

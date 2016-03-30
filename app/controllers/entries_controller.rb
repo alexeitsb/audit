@@ -8,11 +8,9 @@ class EntriesController < ApplicationController
   end
 
   def new
-
   end
 
   def edit
-
   end
 
   def create
@@ -25,18 +23,23 @@ class EntriesController < ApplicationController
   end
 
   def update
-
+    if @entry.update(entry_params)
+      redirect_to entries_path, notice: "#{@entry.description} - atualizado com sucesso!"
+    else
+      render :edit
+    end
   end
 
   def destroy
-
+    @entry.destroy
+    redirect_to entries_path, notice: "O lançamento foi excluído com sucesso!"
   end
 
 
   private
 
   def entry_params
-    p = params.require(:entry).permit(:description, :value, :note, :entity)
+    p = params.require(:entry).permit(:description, :value, :note, :entity, :at)
     p.merge!(user: current_user) if create?
     return p
   end

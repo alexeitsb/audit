@@ -1,0 +1,8 @@
+# ENV vars necessary to run the app locally.
+#
+# DO NOT CHECK THIS FILE INTO VERSION CONTROL
+
+ENV["AWS_ACCESS_KEY_ID"] = ""
+ENV["AWS_SECRET_ACCESS_KEY"] = ""
+ENV["S3_HOST_NAME"] = ""
+ENV["S3_BUCKET_NAME"] = ""

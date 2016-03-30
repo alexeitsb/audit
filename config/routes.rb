@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
 
   resources :entries, shallow: true do
-    resources :attachments
+    resources :attachments, only: [:index, :new, :create, :destroy]
   end
 end

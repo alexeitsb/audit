@@ -1,6 +1,7 @@
 <%= form_for(@entry) do |f| %>
   <%= t_field(f, @entry, :description, "", true) %>
   <%= t_field(f, @entry, :value, "mask_two_decimals") %>
+  <%= t_field(f, @entry, :at, "datepicker mask_date") %>
   <%= t_area(f, @entry, :note) %>
   <div>
     <%= f.radio_button :entity, :credit %>

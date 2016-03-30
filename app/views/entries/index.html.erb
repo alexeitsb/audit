@@ -1,1 +1,31 @@
-INDEX
+<table>
+  <thead>
+    <tr>
+      <th style="width: 30px;"></th>
+      <th style="width: 400px;">LANÇAMENTO</th>
+      <th style="width: 120px;">VALOR</th>
+      <th>OBSERVAÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @entries.each do |entry| %>
+      <tr>
+        <td><%= link_to img_attachments("Anexos (#{entry.attachments.size})"), entry_attachments_path(entry) %></td>
+        <td>
+          <% if can? :update, entry %>
+            <%= link_to entry.description, edit_entry_path(entry) %>
+          <% else %>
+            <%= entry.description %>
+          <% end %>
+          <div class="font-italic"><%= by(entry) %></div>
+        </td>
+        <td><%= entry_value(entry) %></td>
+        <td><%= entry.note %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="new">
+  <%= link_to "FAZER UM LANÇAMENTO", new_entry_path %>
+</div>
