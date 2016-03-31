@@ -16,10 +16,11 @@ class Ability
       end
     elsif user.read?
       # Entry
-      cannot :create, Entry
+      can :read, Entry
+      cannot [:create, :update, :destroy], Entry
+      # Attachment
+      can :read, Attachment
+      cannot [:create, :update, :destroy], Attachment
     end
   end
 end
-
-
-# :create, :read, :update, :destroy

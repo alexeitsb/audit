@@ -26,6 +26,8 @@
   </tbody>
 </table>
 
-<div class="new">
-  <%= link_to "FAZER UM LANÇAMENTO", new_entry_path %>
-</div>
+<% if can? :create, Entry %>
+  <div class="new">
+    <%= link_to "FAZER UM LANÇAMENTO", new_entry_path %>
+  </div>
+<% end %>

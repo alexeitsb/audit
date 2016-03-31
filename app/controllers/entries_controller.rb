@@ -2,6 +2,7 @@ class EntriesController < ApplicationController
   load_and_authorize_resource
 
   before_action :check_if_has_any, only: [:index]
+  before_action { |controller| add_breadcrumb(controller.action_name) }
 
   def index
     @entries = last_entries.paginate(page: params[:page])
@@ -46,5 +47,17 @@ class EntriesController < ApplicationController
 
   def check_if_has_any
     render "templates/blank", locals: { text: "Seus Lançamentos aparecerão aqui", link_label: "fazer um lançamento", link_path: new_entry_path } if entries.empty?
+  end
+
+  def add_breadcrumb(action)
+    if action == "index"
+      breadcrumbs.add "Lançamentos"
+    elsif action == "new" || action == "create"
+      breadcrumbs.add "Lançamentos", entries_path
+      breadcrumbs.add "Novo"
+    elsif action == "show" || action == "edit" || action == "update"
+      breadcrumbs.add "Lançamentos", entries_path
+      breadcrumbs.add @entry.description
+    end
   end
 end

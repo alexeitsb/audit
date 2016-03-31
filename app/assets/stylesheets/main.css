@@ -237,8 +237,8 @@ table.no-hover tbody tr:hover {
 }
 
 .breadcrumb {
-  margin-top: 15px;
-  border-bottom: thin solid #393EF5;
+  margin: 15px 40px;
+  border-bottom: solid 2px #707070;
 }
 
 .breadcrumb span.last {
@@ -267,7 +267,7 @@ table.no-hover tbody tr:hover {
 }
 
 .yield {
-  margin: 60px 40px;
+  margin: 25px 40px;
 }
 
 .flash {

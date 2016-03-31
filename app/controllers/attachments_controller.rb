@@ -2,6 +2,8 @@ class AttachmentsController < ApplicationController
   load_and_authorize_resource :entry
   load_and_authorize_resource :attachment, through: :entry, shallow: true
 
+  before_action { |controller| add_breadcrumb(controller.action_name) }
+
   def index
     @attachments = @entry.attachments
     @attachment = Attachment.new
@@ -30,5 +32,12 @@ class AttachmentsController < ApplicationController
 
   def attachment_params
     params.require(:attachment).permit(:file)
+  end
+
+  def add_breadcrumb(action)
+    if action == "index"
+      breadcrumbs.add "Lançamentos", entries_path
+      breadcrumbs.add "Anexos"
+    end
   end
 end

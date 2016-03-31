@@ -21,6 +21,9 @@
       <div class="flash_<%= flash.first[0] %>"><%= flash.first[1] %></div>
     <% end %>
   </div>
+  <% if user_signed_in? %>
+    <div class="breadcrumb"><%= breadcrumbs.render(format: :inline) %></div>
+  <% end %>
   <div class="yield"><%= yield %></div>
 </body>
 </html>

@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
   include UserHelper
   include ModelHelper
 
+  # Add root breadcrumbs.
+  before_action { breadcrumbs.add "Início", root_path }
+
   # Check if requested action is create.
   def create?
     params[:action] == "create"
