@@ -4,6 +4,6 @@ module ModelHelper
   end
 
   def last_entries
-    Entry.order("created_at DESC")
+    Entry.order("at DESC")
   end
 end
