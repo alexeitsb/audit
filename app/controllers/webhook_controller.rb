@@ -1,4 +1,6 @@
 class WebhookController < ApplicationController
+  protect_from_forgery with: :null_session
+
   def add_entry
     if user = User.find_by_username(params["From"][0..params["From"].index("@")-1])
       if user.email == params["From"]
