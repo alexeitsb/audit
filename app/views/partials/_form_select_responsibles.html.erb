@@ -1,0 +1,5 @@
+<div class="field">
+  <span style="display: inline-block; width: 450px;"><%= form.label :responsible_id, "RESPONSÁVEL PELO LANÇAMENTO" %></span>
+  <br />
+  <%= form.select :responsible_id, options_from_collection_for_select(users, :id, :name, selected_id) %>
+</div>

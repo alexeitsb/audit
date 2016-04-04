@@ -1,3 +1,14 @@
+<% if can? :create, Entry %>
+  <div class="new">
+    <%= link_to "FAZER UM LANÇAMENTO", new_entry_path %>
+  </div>
+<% end %>
+
+<div class="paginator">
+  <%= page_entries_info @vehicles %>
+  <%= will_paginate @vehicles %>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -17,7 +28,7 @@
           <% else %>
             <%= entry.description %>
           <% end %>
-          <div class="font-italic"><%= by(entry) %></div>
+          <div class='font-italic'><%= entry_by(entry) %></div>
         </td>
         <td><%= entry_value(entry) %></td>
         <td><%= entry.note %></td>
@@ -26,8 +37,23 @@
   </tbody>
 </table>
 
-<% if can? :create, Entry %>
-  <div class="new">
-    <%= link_to "FAZER UM LANÇAMENTO", new_entry_path %>
-  </div>
-<% end %>
+<table class="no-border no-hover" style="width: auto; margin-top: 50px;">
+  <tbody>
+    <tr class="font-18">
+      <td style="width: 250px;">TOTAL CRÉDITO</td>
+      <td class="font-green font-bold"><%= entry_credit %></td>
+    </tr>
+    <tr class="font-18">
+      <td>TOTAL DÉBITO</td>
+      <td class="font-red font-bold"><%= entry_debit %></td>
+    </tr>
+    <tr class="font-18">
+      <td>TOTAL GERAL</td>
+      <% if entry_total_positive? %>
+        <td class="font-green font-bold">+ <%= entry_total %></td>
+      <% else %>
+        <td class="font-red font-bold">- <%= entry_total %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

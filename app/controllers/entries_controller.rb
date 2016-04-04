@@ -40,7 +40,7 @@ class EntriesController < ApplicationController
   private
 
   def entry_params
-    p = params.require(:entry).permit(:description, :value, :note, :entity, :at)
+    p = params.require(:entry).permit(:responsible_id, :description, :value, :note, :entity, :at)
     p.merge!(user: current_user) if create?
     return p
   end

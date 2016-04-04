@@ -26,6 +26,6 @@ module Audit
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
     # Paginator default rows per page.
-    WillPaginate.per_page = 30
+    WillPaginate.per_page = 50
   end
 end

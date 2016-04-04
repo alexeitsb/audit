@@ -26,4 +26,8 @@ module FormHelper
   def t_area(form, resource, attribute)
     render partial: "partials/form_text_area", locals: { form: form, resource: resource, attribute: attribute }
   end
+
+  def s_responsibles(form, selected_id)
+    render partial: "partials/form_select_responsibles", locals: { form: form, selected_id: selected_id }
+  end
 end

@@ -1,0 +1,16 @@
+pt-BR:
+  will_paginate:
+    next_label: Próxima
+    page_entries_info:
+      multi_page: Exibindo %{from} - %{to} de %{count} registros
+      multi_page_html: Exibindo <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b> registros
+      single_page:
+        one: 1 registro
+        other: Exibindo todos os %{count} registros
+        zero: Sem registro
+      single_page_html:
+        one: <b>1</b> registro
+        other: <b>%{count}</b> registros
+        zero: Nenhum registro
+    page_gap: ! '&hellip;'
+    previous_label: Anterior

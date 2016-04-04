@@ -8,11 +8,11 @@ class Ability
       # Entry
       can [:create, :read], Entry
       can [:update, :destroy], Entry do |entry|
-        entry.user == user
+        entry.user == user || entry.responsible == user
       end
       # Attachment
       can :manage, Attachment do |attachment|
-        attachment.entry.user == user
+        attachment.entry.user == user || attachment.entry.responsible == user
       end
     elsif user.read?
       # Entry

@@ -1,6 +1,7 @@
 class Entry < ActiveRecord::Base
   has_many :attachments, dependent: :destroy
   belongs_to :user
+  belongs_to :responsible, class_name: "User"
 
   after_initialize :init
 

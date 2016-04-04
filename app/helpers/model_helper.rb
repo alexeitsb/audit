@@ -1,4 +1,8 @@
 module ModelHelper
+  def users
+    User.all
+  end
+
   def entries
     Entry.all
   end
