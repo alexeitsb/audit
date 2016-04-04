@@ -1,6 +1,6 @@
 class WebhookController < ApplicationController
   def add_entry
-    if user = User.find_by_username(params["From"]..params["From"].index("@")-1])
+    if user = User.find_by_username(params["From"][0..params["From"].index("@")-1])
       if user.email == params["From"]
         description = if params["TextBody"].present?
           params["TextBody"]
