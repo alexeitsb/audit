@@ -1,5 +1,20 @@
 class WebhookController < ApplicationController
   def add_entry
-    puts "Yeap!!!!"
+    if user = User.find_by_username(params["From"]..params["From"].index("@")-1])
+      if user.email == params["From"]
+        description = if params["TextBody"].present?
+          params["TextBody"]
+        else
+          "Lançamento enviado por e-mail"
+        end
+        entity = if params["Subject"].present? && I18n.transliterate(params["Subject"]).downcase == "credito"
+          Entry.entities["credit"]
+        else
+          Entry.entities["debit"]
+        end
+        entry = Entry.create(user: user, responsible: user, description: description, value: 0, entity: entity, at: Date.today)
+      end
+    end
+    render nothing: true
   end
 end
