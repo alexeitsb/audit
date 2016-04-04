@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     delete "destroy"
   end
 
+  namespace :webhook do
+    post "add_entry"
+  end
+
   resources :entries, shallow: true do
     resources :attachments, only: [:index, :new, :create, :destroy]
   end
