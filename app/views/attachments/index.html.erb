@@ -6,9 +6,9 @@
 <div style="margin-top: 20px;"></div>
 
 <% @attachments.each do |attachment| %>
-  <%= link_to image_tag(attachment.file.url(:s_200)), attachment.file.url, target: "_blank" %>
+  <%= link_to image_tag(attachment.file.url(:s_200)), attachment.file.url, title: "Visualizar este arquivo", target: "_blank" %>
   <% if can? :destroy, attachment %>
-    <%= link_to img_trash, attachment, method: :delete, data: { confirm: "Deseja excluir este arquivo?" } %>
+    <%= link_to img_trash, attachment, method: :delete, title: "Excluir este arquivo", data: { confirm: "Deseja excluir este arquivo?" } %>
   <% end %>
   <span class="margin-right"></span>
 <% end %>
