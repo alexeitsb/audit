@@ -19,7 +19,7 @@ class WebhookController < ApplicationController
         entry = Entry.create(user: user, responsible: user, description: description, value: value, entity: entity, at: at)
         if params["Attachments"].present?
           params["Attachments"].each do |attachment|
-            file = Tempfile.new(attachment["Name"])
+            file = File.new(attachment["Name"], "wb")
             file.write(Base64.decode64(attachment["Content"]))
             entry.attachments.create(file: file)
           end
