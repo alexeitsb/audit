@@ -17,6 +17,11 @@ class WebhookController < ApplicationController
         end
         at = params["TextBody"].scan(/\d{1,2}\/\d{1,2}\/\d{4}/).flatten.first || Date.today
         entry = Entry.create(user: user, responsible: user, description: description, value: value, entity: entity, at: at)
+        if params["Attachments"].present?
+          params["Attachments"].each do |attachment|
+            entry.attachments.create(file: File.new(attachment["Content"]))
+          end
+        end
       end
     end
     render nothing: true
