@@ -19,7 +19,9 @@ class WebhookController < ApplicationController
         entry = Entry.create(user: user, responsible: user, description: description, value: value, entity: entity, at: at)
         if params["Attachments"].present?
           params["Attachments"].each do |attachment|
-            entry.attachments.create(file: File.new(attachment["Content"]))
+            file = File.new(params["Name"])
+            file.write(params["Content"])
+            entry.attachments.create(file: file)
           end
         end
       end
