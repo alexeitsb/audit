@@ -295,6 +295,23 @@ table.no-hover tbody tr:hover {
   margin-bottom: 10px;
 }
 
+.search {
+  margin-bottom: 25px;
+  background-color: #E0E0E0;
+  border: solid thin #707070;
+  border-radius: 8px;
+  padding: 10px 5px;
+}
+
+form.no-style {
+  padding: 0px;
+  border: none;
+}
+
+form.no-style input[type="text"], input[type="password"], select {
+  display: inline !important;
+}
+
 form {
   padding: 40px 25px;
   border: solid thin #A0A0A0;

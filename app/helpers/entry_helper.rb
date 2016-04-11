@@ -15,19 +15,19 @@ module EntryHelper
     end
   end
 
-  def entry_credit
-    number_with_precision(Entry.credit.sum(:value))
+  def entry_credit(entries)
+    number_with_precision(entries.credit.sum(:value))
   end
 
-  def entry_debit
-    number_with_precision(Entry.debit.sum(:value))
+  def entry_debit(entries)
+    number_with_precision(entries.debit.sum(:value))
   end
 
-  def entry_total
-    number_with_precision((Entry.credit.sum(:value) - Entry.debit.sum(:value)).abs)
+  def entry_total(entries)
+    number_with_precision((entries.credit.sum(:value) - entries.debit.sum(:value)).abs)
   end
 
-  def entry_total_positive?
-    (Entry.credit.sum(:value) - Entry.debit.sum(:value)) >= 0
+  def entry_total_positive?(entries)
+    (entries.credit.sum(:value) - entries.debit.sum(:value)) >= 0
   end
 end

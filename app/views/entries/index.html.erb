@@ -1,3 +1,5 @@
+<%= render "search" %>
+
 <% if can? :create, Entry %>
   <div class="new">
     <%= link_to "FAZER UM LANÇAMENTO", new_entry_path %>
@@ -5,8 +7,8 @@
 <% end %>
 
 <div class="paginator">
-  <%= page_entries_info @vehicles %>
-  <%= will_paginate @vehicles %>
+  <%= page_entries_info @pag_entries %>
+  <%= will_paginate @pag_entries %>
 </div>
 
 <table>
@@ -19,7 +21,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @entries.each do |entry| %>
+    <% @pag_entries.each do |entry| %>
       <tr>
         <td><%= link_to img_attachments("Anexos (#{entry.attachments.size})"), entry_attachments_path(entry) %></td>
         <td>
@@ -41,18 +43,18 @@
   <tbody>
     <tr class="font-18">
       <td style="width: 250px;">TOTAL CRÉDITO</td>
-      <td class="font-green font-bold"><%= entry_credit %></td>
+      <td class="font-green font-bold"><%= entry_credit(@entries) %></td>
     </tr>
     <tr class="font-18">
       <td>TOTAL DÉBITO</td>
-      <td class="font-red font-bold"><%= entry_debit %></td>
+      <td class="font-red font-bold"><%= entry_debit(@entries) %></td>
     </tr>
     <tr class="font-18">
       <td>TOTAL GERAL</td>
-      <% if entry_total_positive? %>
-        <td class="font-green font-bold">+ <%= entry_total %></td>
+      <% if entry_total_positive?(@entries) %>
+        <td class="font-green font-bold">+ <%= entry_total(@entries) %></td>
       <% else %>
-        <td class="font-red font-bold">- <%= entry_total %></td>
+        <td class="font-red font-bold">- <%= entry_total(@entries) %></td>
       <% end %>
     </tr>
   </tbody>
