@@ -8,9 +8,13 @@ class WebhookController < ApplicationController
       else
         "Lançamento enviado por e-mail"
       end
-      value = params["TextBody"].scan(/\d+[,]\d+/).flatten.first if params["TextBody"].scan(/\d+[,]\d+/).flatten.first
-      entity = Entry.entities["credit"] if params["Subject"].present? && I18n.transliterate(params["Subject"]).downcase == "credito"
-      at = params["TextBody"].scan(/\d{1,2}\/\d{1,2}\/\d{4}/).flatten.first if params["TextBody"].scan(/\d{1,2}\/\d{1,2}\/\d{4}/).flatten.first
+      value = params["TextBody"].scan(/\d+[,]\d+/).flatten.first || 0
+      entity = if params["Subject"].present? && I18n.transliterate(params["Subject"]).downcase == "credito"
+        Entry.entities["credit"]
+      else
+        Entry.entities["debit"]
+      end
+      at = params["TextBody"].scan(/\d{1,2}\/\d{1,2}\/\d{4}/).flatten.first || Date.today
       entry = Entry.create(user: user, responsible: user, description: description, value: value, entity: entity, at: at)
       if params["Attachments"].present?
         params["Attachments"].each do |attachment|
