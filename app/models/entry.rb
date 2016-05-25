@@ -7,7 +7,7 @@ class Entry < ActiveRecord::Base
 
   enum entity: { credit: 1, debit: 2 }
 
-  validates :description, presence: true, length: { in: 5..200 }
+  validates :description, presence: true, length: { in: 4..200 }
 
   scope :by_user_id, -> (user_id) { where("user_id = #{user_id}") }
   scope :by_responsible_id, -> (responsible_id) { where("responsible_id = #{responsible_id}") }

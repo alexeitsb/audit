@@ -32,5 +32,5 @@ pt-BR:
           attributes:
             description:
               blank: A descrição do lançamento precisa ser informada
-              too_short: Informe uma descrição que tenha no mínimo 5 e no máximo 200 caracteres.
-              too_long: Informe uma descrição que tenha no mínimo 5 e no máximo 200 caracteres.
+              too_short: Informe uma descrição que tenha no mínimo 4 e no máximo 200 caracteres.
+              too_long: Informe uma descrição que tenha no mínimo 4 e no máximo 200 caracteres.
