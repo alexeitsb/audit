@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, length: { in: 5..40 }, uniqueness: true
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, uniqueness: true
-  validates :name, presence: true, length: { in: 6..200 }
+  validates :name, presence: true, length: { in: 4..200 }
 
   enum role: { admin: 1, write: 2, read: 3 }
 
