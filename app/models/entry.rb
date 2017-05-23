@@ -11,6 +11,7 @@ class Entry < ActiveRecord::Base
 
   scope :by_user_id, -> (user_id) { where("user_id = #{user_id}") }
   scope :by_responsible_id, -> (responsible_id) { where("responsible_id = #{responsible_id}") }
+  scope :by_description, -> (description) { where("description LIKE '%#{description}%' OR note LIKE '%#{description}%'") }
   scope :by_beginning_date, -> (beginning_date) { where("at >= ?", Date.parse(beginning_date)) }
   scope :by_end_date, -> (end_date) { where("at <= ?", Date.parse(end_date)) }
 

@@ -8,6 +8,7 @@ class EntriesController < ApplicationController
   def index
     @entries = last_entries
     @entries = @entries.send :by_responsible_id, params[:responsible_id] if params[:responsible_id].present?
+    @entries = @entries.send :by_description, params[:description] if params[:description].present?
     @entries = @entries.send :by_beginning_date, params[:beginning_date] if params[:beginning_date].present?
     @entries = @entries.send :by_end_date, params[:end_date] if params[:end_date].present?
     @pag_entries = @entries.paginate(page: params[:page])
@@ -68,6 +69,7 @@ class EntriesController < ApplicationController
 
   def search_params
     @responsible_id = params[:responsible_id]
+    @description = params[:description]
     @beginning_date = params[:beginning_date]
     @end_date = params[:end_date]
   end

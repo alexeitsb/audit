@@ -1,7 +1,9 @@
 <div class="search">
   <%= form_tag entries_path, method: :get, id: "form_entries_search", class: "no-style" do %>
+    <%= text_field_tag :description, @description, placeholder: "Descrição", style: "width: 250px;", autofocus: true %>
     <%= select_tag :responsible_id, options_from_collection_for_select(users, :id, :name, @responsible_id), style: "width: 250px;", prompt: "Todos os Usuários", onchange: "$('#form_entries_search').trigger('submit');" %>
     <span class="margin-left">de: <input id="beginning_date" type="text" class="datepicker mask_date" name="beginning_date" style="width: 100px;" placeholder="dd/mm/yyyy" value="<%= @beginning_date %>" onchange="$('#form_entries_search').trigger('submit');" /></span>
     <span class="margin-left">até: <input id="end_date" type="text" class="datepicker mask_date" name="end_date" style="width: 100px;" placeholder="dd/mm/yyyy" value="<%= @end_date %>" onchange="$('#form_entries_search').trigger('submit');" /></span>
+    <%= submit_tag "Enviar" %>
   <% end %>
 </div>
