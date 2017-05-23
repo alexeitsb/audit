@@ -14,3 +14,7 @@
 
 # Ignore env local vars file
 config/vars.rb
+
+# Ignore rvm config
+/.ruby-version
+/.ruby-gemset
