@@ -3,6 +3,7 @@ class WebhookController < ApplicationController
 
   def add_entry
     if user = User.find_by_email(params["From"])
+      return unless (user.admin? || user.write?)
       description = if params["TextBody"].present?
         params["TextBody"].gsub(/\d+[,]\d+/, "").gsub(/\d{1,2}\/\d{1,2}\/\d{4}/, "").gsub("\r\n", "").rstrip
       else
