@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   enum role: { admin: 1, write: 2, read: 3 }
 
+  after_create :generate_token
+
   default_scope { order(:name) }
 
   def password
@@ -16,5 +18,12 @@ class User < ActiveRecord::Base
   def password=(new_password)
     @password = BCrypt::Password.create(new_password)
     self.encrypted_password = @password
+  end
+
+
+  private
+
+  def generate_token
+    update_attributes(token: Digest::SHA1.hexdigest([Time.now, rand].join))
   end
 end
